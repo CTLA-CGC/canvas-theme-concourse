@@ -1,0 +1,63 @@
+//This script replaces the Canvas syllabus tool visible name to Course Schedule
+
+$(document.body).find('a.syllabus').each(function() { //search with links only (the main nav)
+  var tmp = $(this).children().remove();
+  var wrt = $(this).text();
+  wrt = wrt.replace(/Syllabus/g, "Course Schedule"); //replace Syllabus with Course Schedule
+  $(this).text(wrt);
+  $(this).append(tmp);
+
+});
+
+$(document.body).find('span.ellipsible').each(function() { //search within span elements class ellipsible this is the breadcrumbs of the course
+  var spa = $(this).children().remove();
+  var elp = $(this).text();
+  elp = elp.replace(/Syllabus/g, "Course Schedule"); //replace Syllabus with <li style="margin-bottom: 12px; margin-left: 12px;">
+  $(this).text(elp);
+  $(this).append(spa);
+});
+
+$(document.body).find('h1.ic-Action-header__Heading').each(function() { //search for the header on the Syllabus page itself
+  var tmp = $(this).children().remove();
+  var wrt = $(this).text();
+  wrt = wrt.replace(/Syllabus/g, "Schedule"); //replace Syllabus with Overview
+  $(this).text(wrt);
+  $(this).append(tmp);
+
+});
+
+$("#course_syllabus_details").find("p").each(function() { //change only the paragraph with that ID
+  var tmp = $(this).children().remove();
+  var wrt = $(this).text();
+  wrt = wrt.replace(/The syllabus page/g, "This tool has been renamed at CGCC due to the use of Concourse Syllabus. You may use it as the home page by choosing 'Syllabus' from the 'Choose Home Page' menu on the home screen. This page "); //replace statement with a CGC specific statement. 
+  $(this).text(wrt);
+  $(this).append(tmp);
+
+});
+
+
+$(document.body).find('li#nav_edit_tab_id_1').each(function() { //search for navigation items under Course Settings
+  var tmp = $(this).children().remove();
+  var wrt = $(this).text();
+  wrt = wrt.replace(/Syllabus/g, "Course Schedule (old Syllabus)"); //replace Syllabus with Course Schedule
+  $(this).text(wrt);
+  $(this).append(tmp);
+
+});
+
+$(document.body).find('span.screenreader-only').each(function() { //Screen Reader description of the navigation item found in Settings, Navigation
+  var tmp = $(this).children().remove();
+  var wrt = $(this).text();
+  wrt = wrt.replace(/Syllabus/g, "Course Schedule"); //replace Syllabus with Course Schedule
+  $(this).text(wrt);
+  $(this).append(tmp);
+
+});
+$(document.body).find('span.fNHEA_blJt').each(function() { //find within the set home page menu THIS DOES NOT WORK! 
+  var tmp = $(this).children().remove();
+  var wrt = $(this).text();
+  wrt = wrt.replace(/Syllabus/g, "Course Schedule"); //replace Syllabus with Schedule
+  $(this).text(wrt);
+  $(this).append(tmp);
+
+});
